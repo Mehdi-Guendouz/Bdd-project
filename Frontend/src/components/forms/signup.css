@@ -1,0 +1,106 @@
+ 
+/*       feed           */
+
+.grid-div{
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+.feed {
+    margin-top: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}         
+        /*         hado nta3 title LET'S EXPLORE OUR FEED */
+.feed > .title {
+    display: flex;  
+    justify-content: center;
+    position: absolute;
+    align-self: center;
+    top: -45px;
+    width: 60%;
+}
+.title > .box {
+    border: 2px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border: 6px solid #F75C03;
+    border-radius: 26px;
+    font-weight: 700;
+    font-size: 30px;
+    color: #0A1682;
+}
+.title > img , .subtitle > img{
+    margin: auto 0px;
+}
+            /* hna le content di fih slide bar */
+.content {
+    align-self: center;
+    width: 90%;
+    margin: 0 20px;
+    border: 3px solid #0A1682;
+    padding-top:200px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.content > .titles {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 100px;
+    align-self: center;
+}
+.content > .titles > h2 {
+    color: #0A1682;
+    font-weight: 700;
+    font-size: 30px;
+}
+.feed > .content > .persons {
+    width: 80%;
+    padding-bottom: 9rem;
+}
+/* .feed > .content > .persons > .person {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+            /* hado nta3 les titres role 1 role 2 ..*/
+/* .feed > .subtitles {
+    display: flex;  
+    justify-content: space-between;
+    width: 70%;
+    position: absolute;
+    align-self: center;
+    padding: 40px 10px;
+    bottom: 36rem;
+}
+.feed > .subtitles > .subtitle {
+    display: flex;  
+    justify-content: center;
+}
+.subtitle > .box {
+    border: 2px;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border: 6px solid #F75C03;
+    border-radius: 26px;
+    font-weight: 700;
+    font-size: 30px;
+    color: #0A1682;
+    z-index: 1;
+} */
+
+/*  helllo */
+
+.titel-font{
+    font-size: bold;
+}
+

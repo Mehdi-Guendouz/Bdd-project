@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* * {
+    box-sizing: border-box;
+}
+*::before,*::after {
+    box-sizing: border-box;
+}
+body {
+    padding: 0px;
+    margin:0px; 
+    display: flex;
+    flex-direction: column;
+}
+p ,a {
+    font-family: 'Poppins';
+    margin:0px;
+}
+.section {
+    margin:0px;
+} */
+
+
+/*   navbar style   */
+
+
+nav {
+    display: flex;
+    padding: 34px ;
+    position: relative;
+    /* position: fixed; */
+    background-color: white;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.logo > h1 {
+    color: #0A1682;
+    font-weight: bold;
+    font-size: 30px;
+}
+.logo > h1 > span {
+    color: #F75C03;
+}
+
+/* hero section */
+
+.links> li > a {
+    padding: 35px 2vw;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+    color: #0A1682;
+}
+
+.main > .left > h1 {
+    width: 35vw;
+    font-size: 43px;
+    font-weight: 700;
+    line-height: 48px;
+    color: #0A1682;
+    margin-bottom: 40px ;
+    /* margin-top: 55px; */
+}   
+
+.main> .left > button , .btn > button{
+    color: white;
+    background-color: #F75C03;
+    height: 75px;
+    width: 232px;
+    border-radius: 26px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+
+.main> .left > button::before , .btn > button::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0A1682;
+    border-radius: inherit;
+    transform: translate3d(0, 0.75em, -1em);
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+  }
+
+
+
+  /* feed */
+
+
+  
+/*       feed           */
+
+.grid-div{
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+.feed {
+    margin-top: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}         
+        /*         hado nta3 title LET'S EXPLORE OUR FEED */
+.feed > .title {
+    display: flex;  
+    justify-content: center;
+    position: absolute;
+    align-self: center;
+    top: -45px;
+    width: 60%;
+}
+.title > .box {
+    border: 2px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border: 6px solid #F75C03;
+    border-radius: 26px;
+    font-weight: 700;
+    font-size: 30px;
+    color: #0A1682;
+}
+.title > img , .subtitle > img{
+    margin: auto 0px;
+}
+            /* hna le content di fih slide bar */
+.content {
+    align-self: center;
+    width: 90%;
+    margin: 0 20px;
+    border: 3px solid #0A1682;
+    padding-top:200px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.content > .titles {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 100px;
+    align-self: center;
+}
+.content > .titles > h2 {
+    color: #0A1682;
+    font-weight: 700;
+    font-size: 30px;
+}
+.feed > .content > .persons {
+    width: 80%;
+    padding-bottom: 9rem;
+}
+/* .feed > .content > .persons > .person {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+            /* hado nta3 les titres role 1 role 2 ..*/
+.feed > .subtitles {
+    display: flex;  
+    justify-content: space-between;
+    width: 70%;
+    position: absolute;
+    align-self: center;
+    padding: 40px 10px;
+    bottom: -85px;
+}
+.feed > .subtitles > .subtitle {
+    display: flex;  
+    justify-content: center;
+}
+.subtitle > .box {
+    border: 2px;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border: 6px solid #F75C03;
+    border-radius: 26px;
+    font-weight: 700;
+    font-size: 30px;
+    color: #0A1682;
+    z-index: 1;
+}
+
+
+.feed2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}  
+.feed2 > .content {
+    align-self: center;
+    width: 90%;
+    margin: 0 20px;
+    border: 3px solid #0A1682;
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 300px;
+}
+.feed2 > .content  > .small ,.feed2 > .content  > .big {
+    display: flex;
+    margin: 40px 10%;
+    align-self: center;
+}
+.feed2 > .content  > .small > .writing > h3 ,.feed2 > .content  > .big > .writing > h3 {
+    color: #0A1682;
+    font-weight: 700;
+    font-size: 26px;
+}
+.feed2 > .content  > .small > .writing > p ,.feed2 > .content  > .big > .writing > p {
+    max-width: 80%;
+}
+.feed2 > .content  > .big > .writing {
+    margin-left: 20%;
+}
+
+
+
+.feed3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 400px;
+}         
+        /*         hado nta3 title ( for both ) */
+.feed3 > .title {
+    display: flex;  
+    justify-content: center;
+    position: absolute;
+    align-self: center;
+    top: -45px;
+    width: 40%;
+}
+
+.feed3 > .content {
+    padding: 250px 50px;
+}
+.feed3 > .content > img {
+    align-self: center;
+    max-width: 70%;
+    padding-bottom: 100px;
+}
+.feed3 > .content > p {
+    max-width: 70%;
+    align-self: center;
+    text-align: center;
+    padding: 100px 0px;
+}
+.feed3 > .content > h2 {
+    align-self  : center;
+    font-weight: 700;
+    font-size: 26px;
+    color: #0A1682;
+}
+.btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 60%;
+    bottom: -35px;
+}
+.btn > button {
+    width: 60%;
+}
+.btn > img {
+    padding: auto 0px;
+}
+
+
+
+/*    footer    */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    padding: 40px 10px;
+    width: 100%;
+}
+
+.footer-logo {
+    width: 25%;
+}
+
+footer > .socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+footer > p{
+    
+    text-align: center;
+    width: 25%;
+}

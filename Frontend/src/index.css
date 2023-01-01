@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 2 / 2 / 5; }
+    .div2 { grid-area: 1 / 5 / 2 / 6; }
+    .div3 { grid-area: 1 / 1 / 2 / 2; }
