@@ -1,5 +1,6 @@
 import React from 'react'
 import './signup.css'
+import {Link} from 'react-router-dom'
 
 export default function SignupForm() {
   return (
@@ -48,7 +49,7 @@ export default function SignupForm() {
                 </form>
             </div>
             <div>
-                <p className='uppercase text-[#838383] text-[20px] font-bold'>already have an account? <span className='text-[#F75C03]'>login</span></p>
+                <p className='uppercase text-[#838383] text-[20px] font-bold'>already have an account? <span className='text-[#F75C03]'><Link to="/login">login</Link></span></p>
             </div>
         </div>
     </div>

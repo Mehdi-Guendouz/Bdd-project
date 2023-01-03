@@ -41,7 +41,7 @@ export default function Signup() {
               </div>  
           </div>
       </div>
-      <div class="subtitles">
+      <div class="">
           <div class="subtitle">
               {/* <img src="/img/Ellipse 32.png" alt=""/> */}
               <div class="box">ROLE 1</div>
