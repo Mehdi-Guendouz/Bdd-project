@@ -1,0 +1,49 @@
+{
+  "name": "mongoose-deep-populate",
+  "version": "3.2.0",
+  "description": "Mongoose plugin to enable deep population of nested models",
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "mongoose",
+    "populate",
+    "population",
+    "deep populate",
+    "deep population",
+    "models",
+    "nested models",
+    "populate models",
+    "model population",
+    "documents",
+    "nested documents",
+    "populate documents",
+    "documents population"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test --db mongodb://127.0.0.1/mongoose_deep_populate_test_db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buunguyen/mongoose-deep-populate"
+  },
+  "author": "Buu Nguyen <buunguyen@gmail.com> (https://github.com/buunguyen)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/buunguyen/mongoose-deep-populate/issues"
+  },
+  "homepage": "https://github.com/buunguyen/mongoose-deep-populate",
+  "devDependencies": {
+    "async": "^0.9.0",
+    "chai": "^2.1.1",
+    "gulp": "^3.8.11",
+    "gulp-exit": "0.0.2",
+    "gulp-jshint": "^1.9.2",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-mocha": "^2.0.0",
+    "jshint-stylish": "^1.0.1",
+    "lodash": "^3.4.0",
+    "minimist": "^1.1.0",
+    "mongoose": "^5.0.0"
+  }
+}
