@@ -8,7 +8,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var connection = require ('./connection')
-var adminRouter = require('./routes/admin')
 var authRouter = require('./routes/auth-admin')
 
 var indexRouter = require('./routes/index');
@@ -27,7 +26,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.enable("trust proxy");
 app.use(logger('dev'));
-app.use('/admin',adminRouter)
 app.use('/auth',authRouter)
 
 
@@ -51,5 +49,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+app.listen(1337, () => {
+	console.log('Server started on 1337')})
+  
 module.exports = app;
