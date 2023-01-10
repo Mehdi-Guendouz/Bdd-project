@@ -6,6 +6,15 @@ import SignupForm from './SignupForm'
 import './signup.css'
 
 export default function Signup() {
+
+
+
+
+
+
+
+
+
   return (
     <div class="feed section">
       <div class="title">
