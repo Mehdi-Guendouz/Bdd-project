@@ -5,7 +5,10 @@ const bcrypt = require("bcrypt");
 var router = express.Router();
 
 
-
+router.get('/register', async function (req, res, next) {
+  const admin = await  Admins.find()
+  res.send(admin);
+});
 
 
 
@@ -20,7 +23,7 @@ router.post("/register", async (req, res) => {
     typeCompany,
     nomCompany,
     nbrDepartments,
-    nbrEmployees} = req.body;
+    } = req.body;
     let admin = await Admins.findOne({ email });
     if (admin) {return res.status(400).send("User already registered.");}
     else {
@@ -37,7 +40,7 @@ router.post("/register", async (req, res) => {
     typeCompany:typeCompany,
     nomCompany:nomCompany,
     nbrDepartments:nbrDepartments,
-    nbrEmployees:nbrEmployees,
+
     })
       .then(() => {
         res.json("USER REGISTERED");
@@ -111,4 +114,38 @@ router.post("/login", async (req, res) => {
 
 })
 */
+router.put('/edit', async function (req, res, next) {
+
+  try {
+    const {
+      password,
+      email,
+      nomAdmin,
+      prenomAdmin,
+      dateofbirth,
+      phone,
+      country,
+      typeCompany,
+      nomCompany,
+    } = req.body;
+  
+
+    await Admins.findOneAndUpdate(
+      { email },
+      { password, email, nomAdmin, prenomAdmin, phone, dateofbirth, country,nomCompany,typeCompany }
+    );
+    res.json({ msg: "Profile updated successfully." });
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
+  }
+}),
+router.delete('/delete', async function (req, res, next) {
+  const {_id} = req.body
+  const Admin = await Admins.findByIdAndUpdate(_id,
+    {
+      isVisible: false
+    }, { new: true })
+  res.send(Admin);
+
+})
 module.exports = router;

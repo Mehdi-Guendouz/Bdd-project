@@ -10,10 +10,10 @@ function App() {
     <div className="flex items-center justify-center bg-[#fbfbff]">
       <BrowserRouter>
         <Routes>
-            <Route  path="/" element={<LandingPage />}/>
+            <Route  path="/landing" element={<LandingPage />}/>
             <Route  path="/Feed" element={<Feed />}/>
             <Route  path="/login" element={<LoginAdmin />}/>
-            <Route  path="/signup" element={<Signup />}/>
+            <Route  path="/" element={<Signup />}/>
         </Routes>
       </BrowserRouter>
         

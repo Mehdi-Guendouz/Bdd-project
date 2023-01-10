@@ -30,7 +30,7 @@ export default function LoginAdmin() {
                 </form>
             </div>
             <div>
-                <p className='uppercase text-[#838383] text-[20px] font-bold'>you don't have an account?  <span className='text-[#F75C03]'><Link to="/signup"> sign up</Link></span></p>
+                <p className='uppercase text-[#838383] text-[20px] font-bold'>you don't have an account?  <span className='text-[#F75C03]'><Link to="/"> sign up</Link></span></p>
             </div>
         </div>
     </div>
