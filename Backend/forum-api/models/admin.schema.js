@@ -11,8 +11,7 @@ const AdminSchema = new mongoose.Schema({
     country :{type:String},
     typeCompany : {type : String},
     nomCompany : {type : String},   
-    nbrDepartments :{type :String} ,
-    nbrEmployees :{type :String},
+    nbrDepartments :{type :Number} ,
     isVisible: {type: Boolean, default : true},
     createdAt:{type:Date},
     token:{

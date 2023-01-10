@@ -9,6 +9,14 @@ var router = express.Router();
 
 
 
+router.get('/', async function (req, res, next) {
+  const admins = await Admins.find()
+  res.send(admins);})
+
+
+
+
+
 router.post("/register", async (req, res) => {
   const {   password,
     email,
@@ -19,8 +27,7 @@ router.post("/register", async (req, res) => {
     country,
     typeCompany,
     nomCompany,
-    nbrDepartments,
-    nbrEmployees} = req.body;
+    nbrDepartments} = req.body;
     let admin = await Admins.findOne({ email });
     if (admin) {return res.status(400).send("User already registered.");}
     else {
