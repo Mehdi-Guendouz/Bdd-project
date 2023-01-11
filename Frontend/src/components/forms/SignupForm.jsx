@@ -3,24 +3,24 @@ import './signup.css'
 import {Link} from 'react-router-dom'
 
 export default function SignupForm() {
-    const [firstName, setfirstName] = useState('');
-    const [lastName, setlastName] = useState('');
-    const [dateBth, setdateBth] = useState('');
+    const [nomAdmin, setnomAdmin] = useState('');
+    const [prenomAdmin, setprenomAdmin] = useState('');
+    const [dateofbirth, setdateofbirth] = useState('');
     const [country, setcountry] = useState('');
     const [email, setemail] = useState('');
-    const [phoneNmb, setphoneNmb] = useState('');
-    const [cmpName, setcmpName] = useState('');
-    const [cmpType, setcmpType] = useState('');
-    const [nmbDep, setnmbDep] = useState('');
+    const [phone, setphone] = useState('');
+    const [nomCompany, setnomCompany] = useState('');
+    const [typeCompany, settypeCompany] = useState('');
+    const [nbrDepartments, setnbrDepartments] = useState('');
     const [password, setpassword] = useState('');
-    const [packe, setpacke] = useState('');
+    // const [packe, setpacke] = useState('');
     const [error, setError] = useState('')
 
-    const handelSubmit = async (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
-        const signupAdmin = {firstName, lastName,email, password, dateBth,phoneNmb,country,cmpType, cmpName, nmbDep, packe}
+        const signupAdmin = {nomAdmin, prenomAdmin,email, password, dateofbirth,phone,country,typeCompany, nomCompany, nbrDepartments}
 
-        const response = await fetch('/auth-admin/register', {
+        const response = await fetch('/auth/register', {
             method: 'POST',
             body: JSON.stringify(signupAdmin),
             headers: {
@@ -34,17 +34,17 @@ export default function SignupForm() {
             setError(json.error)
         }
         if(response.ok){
-            setfirstName('')
-            setlastName('')
-            setdateBth('')
+            setnomAdmin('')
+            setprenomAdmin('')
+            setdateofbirth('')
             setcountry('')
             setemail('')
-            setphoneNmb('')
-            setcmpName('')
-            setcmpType('')
-            setnmbDep('')
+            setphone('')
+            setnomCompany('')
+            settypeCompany('')
+            setnbrDepartments('')
             setpassword('')
-            setpacke('')
+            // setpacke('')
             setError(null)
             console.log("new workout added successfully", json)
         }
@@ -59,40 +59,40 @@ export default function SignupForm() {
                 {/* <img src={zigzag} alt="" className='absolute right-0 bg-[#fbfbff] translate-x-[15.5px] translate-y-[-30px] z-10'/>
                 <img src={zigzag} alt="" className='absolute left-0 bg-[#fbfbff] translate-x-[-12.5px] translate-y-[-30px] z-10'/> */}
                 {/* this part is decoration part */}
-                <form className='w-full py-5 px-10 ' onSubmit={handelSubmit}>
+                <form className='w-full py-5 px-10 ' onSubmit={handleSubmit} >
                     <h5 className='uppercase text-[#0A1682] text-[30px] font-bold'>let's collect your information</h5>
                     {error && <p>{error}</p>}
                     <div className='w-full flex items-center justify-between px-6 py-4 '>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={firstName}  placeholder='NAME'/>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="password"  value={lastName} placeholder='LAST NAME'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={nomAdmin}  onChange={(e) => setnomAdmin(e.target.value)}  placeholder='NAME'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="text"  value={prenomAdmin}  onChange={(e) => setprenomAdmin(e.target.value)}  placeholder='LAST NAME'/>
                     </div>
                     <div className='w-full flex items-center justify-between px-6 py-4 '>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={dateBth}  placeholder='DATE OF BIRTH'/>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="password"  value={country} placeholder='COUNTRY'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={dateofbirth}  onChange={(e) => setdateofbirth(e.target.value)}   placeholder='DATE OF BIRTH'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="text" value={country}  onChange={(e) => setcountry(e.target.value)}   placeholder='COUNTRY'/>
                     </div>
                     <div className='w-full flex items-center justify-between px-6 py-4 '>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text"  value={email} placeholder='EMAIL'/>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="password" value={phoneNmb} placeholder='PHONE NUMBER'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={email}  onChange={(e) => setemail(e.target.value)}  placeholder='EMAIL'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="tel" value={phone}  onChange={(e) => setphone(e.target.value)} placeholder='PHONE NUMBER'/> 
                     </div>
                     <div className='w-full flex items-center justify-center px-6 py-4'>
-                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={cmpName}  placeholder='COMPANY NAME'/>
-                    </div>
+                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={nomCompany}  onChange={(e) => setnomCompany(e.target.value)} placeholder='COMPANY NAME'/>
+                    </div>s
                     <div className='w-full flex items-center justify-between px-6 py-4 '>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={cmpType} placeholder='COMPANY TYPE'/>
-                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="password" value={nmbDep}  placeholder='NUMBER OF DEPARTEMENTS'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={typeCompany}  onChange={(e) => settypeCompany(e.target.value)}  placeholder='COMPANY TYPE'/>
+                        <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="number" value={nbrDepartments}  onChange={(e) => setnbrDepartments(e.target.value)}  placeholder='NUMBER OF DEPARTEMENTS'/>
                     </div>
                     <div className='w-full flex items-center justify-center px-6 py-4'>
-                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={password}  placeholder='PASSWORD'/>
+                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={password}  onChange={(e) => setpassword(e.target.value)} placeholder='PASSWORD'/>
                     </div>
                     <div className='w-full flex items-center justify-center px-6 py-4'>
-                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text"  value={packe} placeholder='CONFIRM YOUR PACK'/>
+                        {/* <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text"  value={} placeholder='CONFIRM YOUR PACK'/> */}
                     </div>
                     <div>
                         <label className='uppercase'>check this if you wish to have a free trail</label>
                         <input type="checkbox" />
                     </div>
                     <div className='w-full flex items-center justify-center pt-6 diag-div relative'>
-                        <button className='bg-[#F75C03] font-bold text-white uppercase text-[30px] w-[50%] py-6 rounded-[26px] circle-div-btn circle-div relative'>sign up</button>
+                        <button className='bg-[#F75C03] font-bold text-white uppercase text-[30px] w-[50%] py-6 rounded-[26px] circle-div-btn circle-div relative' type ="submit" value="Submit">sign up</button>
                     </div>
                 </form>
             </div>
