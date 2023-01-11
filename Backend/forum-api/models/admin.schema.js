@@ -1,7 +1,10 @@
 const mongoose = require ('mongoose');
 const deepPopulate = require ('mongoose-deep-populate')
+var myId = mongoose.Types.ObjectId();
 
 const AdminSchema = new mongoose.Schema({
+    
+
     nomAdmin : {type : String},
     prenomAdmin : {type : String},
     email :{type :String ,unique: true } ,
