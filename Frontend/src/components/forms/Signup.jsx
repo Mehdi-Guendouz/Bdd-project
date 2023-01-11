@@ -50,24 +50,26 @@ export default function Signup() {
               </div>  
           </div>
       </div>
-      <div class="">
+      <div class="flex items-center jusctify-center gap-[10rem] subdiv">
           <div class="subtitle">
               {/* <img src="/img/Ellipse 32.png" alt=""/> */}
-              <div class="box">ROLE 1</div>
+              <div class="box w-[200px]">ROLE 1</div>
               {/* <img src="/img/Ellipse 32.png" alt=""/> */}
           </div>
           <div class="subtitle">
               {/* <img src="/img/Ellipse 32.png" alt=""/> */}
-              <div class="box">ROLE 2</div>
+              <div class="box w-[200px]">ROLE 2</div>
               {/* <img src="/img/Ellipse 32.png" alt=""/> */}
           </div>
           <div class="subtitle">
               {/* <img src="/img/Ellipse 32.png" alt=""/> */}
-              <div class="box">ROLE 3</div>
+              <div class="box w-[200px]">ROLE 3</div>
               {/* <img src="/img/Ellipse 32.png" alt=""/> */}
           </div>
       </div>
-      <SignupForm/>
+      <div className='mt-10'>
+        <SignupForm/>
+      </div>
   </div>
   )
 }

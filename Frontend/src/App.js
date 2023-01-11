@@ -4,6 +4,7 @@ import Feed from './pages/Feed.jsx'
 import {BrowserRouter , Routes , Route} from 'react-router-dom'
 
 import LandingPage from "./pages/LandingPage.jsx";
+import Sharelink from './components/Sharelink';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route  path="/Feed" element={<Feed />}/>
             <Route  path="/login" element={<LoginAdmin />}/>
             <Route  path="/" element={<Signup />}/>
+            <Route  path="/sharelink" element={<Sharelink/>}/>
         </Routes>
       </BrowserRouter>
         

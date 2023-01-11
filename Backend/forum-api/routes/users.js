@@ -46,6 +46,8 @@ router.post("/register", async (req, res) => {
       });
   });
 }});
+
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
  
@@ -77,6 +79,8 @@ router.post("/login", async (req, res) => {
 
 
 });
+
+
 /*router.put('/edit', async function (req, res, next) {
   const token = req.headers['x-access-token']
   try{
@@ -124,6 +128,8 @@ router.put('/edit', async function (req, res, next) {
     return res.status(500).json({ msg: err.message });
   }
 }),
+
+
 router.delete('/delete', async function (req, res, next) {
   const {_id} = req.body
   const User = await Users.findByIdAndUpdate(_id,
