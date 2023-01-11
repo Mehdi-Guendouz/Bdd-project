@@ -10,8 +10,6 @@ router.get('/register', async function (req, res, next) {
   res.send(admin);
 });
 
-
-
 router.post("/register", async (req, res) => {
   const {   password,
     email,

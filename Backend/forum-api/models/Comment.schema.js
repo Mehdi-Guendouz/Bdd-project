@@ -22,14 +22,12 @@ const population = [{
     match : {isVisible:true}
 }]
 
-TopicsSchema.pre('find',findVisible(population))
-TopicsSchema.pre('findOne',findVisible(population))
-TopicsSchema.pre('findOneAndUpdate',findVisible(population))
-TopicsSchema.pre('count',findVisible(population))
-TopicsSchema.pre('countDocuments',findVisible(population))
+CommentShema.pre('find',findVisible(population))
+CommentShema.pre('findOne',findVisible(population))
+CommentShema.pre('findOneAndUpdate',findVisible(population))
+CommentShema.pre('count',findVisible(population))
+CommentShema.pre('countDocuments',findVisible(population))
 
-CompanySchema.plugin(deepPopulate)
- 
 
 const Comment = mongoose.model('Comments', CommentSchema, 'Comments')
 module.exports = Comment
