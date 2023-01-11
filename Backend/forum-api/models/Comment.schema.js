@@ -25,7 +25,5 @@ CommentSchema.pre('count',findVisible(population))
 CommentSchema.pre('countDocuments',findVisible(population))
 
 
- 
-
 const Comment = mongoose.model('Comments', CommentSchema, 'Comments')
 module.exports = Comment

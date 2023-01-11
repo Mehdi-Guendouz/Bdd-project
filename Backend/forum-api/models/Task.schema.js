@@ -24,11 +24,11 @@ const population = [{
     match :{isVisible:true}
 }]
 
-TopicsSchema.pre('find',findVisible(population))
-TopicsSchema.pre('findOne',findVisible(population))
-TopicsSchema.pre('findOneAndUpdate',findVisible(population))
-TopicsSchema.pre('count',findVisible(population))
-TopicsSchema.pre('countDocuments',findVisible(population))
+TaskShema.pre('find',findVisible(population))
+TaskShema.pre('findOne',findVisible(population))
+TaskShema.pre('findOneAndUpdate',findVisible(population))
+TaskShema.pre('count',findVisible(population))
+TaskShema.pre('countDocuments',findVisible(population))
 
 CompanySchema.plugin(deepPopulate)
  

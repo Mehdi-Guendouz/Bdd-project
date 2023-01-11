@@ -31,11 +31,13 @@ const population = [{
     }
 ]
 
-PostSchema.pre('find',findVisible(population))
-PostSchema.pre('findOne',findVisible(population))
-PostSchema.pre('findOneAndUpdate',findVisible(population))
-PostSchema.pre('count',findVisible(population))
-PostSchema.pre('countDocuments',findVisible(population))
+
+PostShema.pre('find',findVisible(population))
+PostShema.pre('findOne',findVisible(population))
+PostShema.pre('findOneAndUpdate',findVisible(population))
+PostShema.pre('count',findVisible(population))
+PostShema.pre('countDocuments',findVisible(population))
+
 
  
 
