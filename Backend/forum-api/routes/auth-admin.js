@@ -5,6 +5,8 @@ const bcrypt = require("bcrypt");
 var router = express.Router();
 
 
+
+
 router.get('/register', async function (req, res, next) {
   const admin = await  Admins.find()
   res.send(admin);
@@ -25,9 +27,9 @@ router.post("/register", async (req, res) => {
     let admin = await Admins.findOne({ email });
     if (admin) {return res.status(400).send("User already registered.");}
     else {
-
   bcrypt.hash(password, 10).then((hash) => {
     Admins.create({
+      _id: req.params.id,
     password:hash ,
     email:email,
     nomAdmin:nomAdmin,
@@ -40,8 +42,12 @@ router.post("/register", async (req, res) => {
     nbrDepartments:nbrDepartments,
 
     })
+
       .then(() => {
+        console.log(req.body._id)
+
         res.json("USER REGISTERED");
+        
       })
       .catch((err) => {
         if (err) {

@@ -2,12 +2,12 @@ const mongoose = require ('mongoose');
 const deepPopulate = require ('mongoose-deep-populate')
 
 const CommentSchema = new mongoose.Schema({
-    idComment: {type :Number},
     user:{type: mongoose.Schema.Types.ObjectId, ref:'Users'},
-    post : {type: mongoose.Schema.Types.ObjectId, ref:'Posts'},
-    dateComment : {type : Date},
-    Description :{type: String},
-    isVisible: {type: Boolean, default : true},
+    content: {
+        type: String,
+        required: true,
+      },
+          isVisible: {type: Boolean, default : true},
     createdAt:{type:Date}
 
 })
@@ -17,16 +17,12 @@ const population = [{
     match : {isVisible:true}
 
 },
-{
-    path :'post',
-    match : {isVisible:true}
-}]
-
-CommentShema.pre('find',findVisible(population))
-CommentShema.pre('findOne',findVisible(population))
-CommentShema.pre('findOneAndUpdate',findVisible(population))
-CommentShema.pre('count',findVisible(population))
-CommentShema.pre('countDocuments',findVisible(population))
+]
+CommentSchema.pre('find',findVisible(population))
+CommentSchema.pre('findOne',findVisible(population))
+CommentSchema.pre('findOneAndUpdate',findVisible(population))
+CommentSchema.pre('count',findVisible(population))
+CommentSchema.pre('countDocuments',findVisible(population))
 
 
 const Comment = mongoose.model('Comments', CommentSchema, 'Comments')

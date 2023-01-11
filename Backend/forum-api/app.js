@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var connection = require ('./connection')
 var authRouter = require('./routes/auth-admin')
-
+var PostRouter = require('./routes/post')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var messageRouter = require('./routes/messagesController');
@@ -28,8 +28,8 @@ app.set('view engine', 'jade');
 app.enable("trust proxy");
 app.use(logger('dev'));
 app.use('/auth',authRouter)
-
-
+app.use('/post',PostRouter)
+//app.use('/')
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
