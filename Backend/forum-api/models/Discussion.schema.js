@@ -31,7 +31,7 @@ const population = [{
     path:'listemembres',
     match :{isVisible:true}
 }]
- 
+
 
 const Discussion = mongoose.model('Discussions', DiscussionSchema, 'Discussion')
 module.exports = Discussion
