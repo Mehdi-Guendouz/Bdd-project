@@ -12,6 +12,7 @@ var authRouter = require('./routes/auth-admin')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var messagesRouter = require('./routes/discussionController');
 
 var app = express();
 app.use(express.json());
@@ -27,6 +28,7 @@ app.set('view engine', 'jade');
 app.enable("trust proxy");
 app.use(logger('dev'));
 app.use('/auth',authRouter)
+app.use('/messages', messagesRouter);
 
 
 app.use(express.static(path.join(__dirname, 'public')));
