@@ -22,9 +22,9 @@ export default function Sharelink() {
                 {/* this part is decoration part */}
                 <form className='w-full py-5 px-10 ' action="">
                     <h5 className='uppercase text-[#000] text-[30px] font-bold'>there is the link that you and your coworkers will be using to whether login or signup to your space</h5>
-                    <div className='w-full flex items-center justify-center flex-col px-6 py-10'>
+                    <div className='w-full flex items-center justify-center gap-4 px-6 py-10'>
                         <p className='text-[#838383] text-[16px] uppercase font-bold'>please use your link carefully and share it with only confidential coworkers</p>
-                        <CopyButton value="mahdi gg" timeout={2000} >
+                        <CopyButton value="mahdi ggjlkfqdlksj" timeout={2000} >
                         {({ copied, copy }) => (
                             <Tooltip label={copied ? 'Copied' : 'Copy'} withArrow position="right">
                             <ActionIcon color={copied ? 'teal' : 'gray'} onClick={copy}>

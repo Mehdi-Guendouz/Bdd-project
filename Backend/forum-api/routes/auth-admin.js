@@ -8,15 +8,17 @@ var router = express.Router();
 router.get('/register', async function (req, res, next) {
   const admin = await  Admins.find()
   res.send(admin);
+  console.log("hello")
 });
 
 
 
 router.post("/register", async (req, res) => {
-  const {   password,
-    email,
+  const {   
     nomAdmin,
     prenomAdmin,
+    email,
+    password,
     dateofbirth,
     phone,
     country,
@@ -30,10 +32,10 @@ router.post("/register", async (req, res) => {
 
   bcrypt.hash(password, 10).then((hash) => {
     Admins.create({
-    password:hash ,
-    email:email,
     nomAdmin:nomAdmin,
     prenomAdmin:prenomAdmin,
+    email:email,
+    password:hash ,
     dateofbirth:dateofbirth,
     phone:phone,
     country:country,
