@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 var express = require('express');
 const bodyParser = require('body-parser');
+const expressSession = require('express-session');
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -20,6 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: 'true' }));
 app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(expressSession({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}))
 
 app.use(cookieParser());
 // view engine setup

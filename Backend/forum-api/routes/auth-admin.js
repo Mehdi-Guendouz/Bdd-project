@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require("bcrypt");
 var router = express.Router();
 
-
+const authMiddleware = require('../middleware/authmiddleware');
 
 router.get('/register', async function (req, res, next) {
   const admin = await  Admins.find()
@@ -139,7 +139,7 @@ router.put('/edit', async function (req, res, next) {
   } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
-}),
+},authMiddleware),
 router.delete('/delete', async function (req, res, next) {
   const {_id} = req.body
   const Admin = await Admins.findByIdAndUpdate(_id,
@@ -148,5 +148,14 @@ router.delete('/delete', async function (req, res, next) {
     }, { new: true })
   res.send(Admin);
 
-})
+},authMiddleware)
+
+router.get("/getlink", async (req, res) => {
+  const user = Admins.findById(req.session.userId);
+  const id = user._id;
+  link = "http://localhost:4000/"+id
+  console.log(link);
+  res.send(link)
+},authMiddleware)
+
 module.exports = router;
