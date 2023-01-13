@@ -4,7 +4,11 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require("bcrypt");
 var router = express.Router();
 
-router.post("/addmsg", async (req, res,next) => {
+
+const authMiddleware = require('../middleware/authmiddleware');
+const idMiddleware = require('../middleware/idmiddleware');
+
+router.post("/:id/addmsg", async (req, res, next) => {
   try{
     const{from,to,message} = req.body;
     const data = await messageModel.create({
@@ -17,9 +21,9 @@ router.post("/addmsg", async (req, res,next) => {
   }catch (ex){
       next(ex);
   }
-});
+},idMiddleware,authMiddleware);
 
-router.post("/getmsg", async (req, res,next) => {
+router.post("/:id/getmsg", async (req, res, next) => {
   try{
     const { from, to } = req.body;
     const messages = await messageModel.find({
@@ -38,6 +42,6 @@ router.post("/getmsg", async (req, res,next) => {
 } catch (ex) {
     next(ex);
 }
-});
+},idMiddleware,authMiddleware);
 
 module.exports = router;
