@@ -1,4 +1,4 @@
-const User = require('../models/user.schema ')
+const User = require('../models/user.schema')
 module.exports = (req, res, next) => {
     const user = User.findById(req.session.userId, (error, user ) =>{
         if(error || !user )
