@@ -17,16 +17,18 @@ export default function SignupForm() {
     const [error, setError] = useState('')
 
     const handleSubmit = async (e) =>{
+        
         e.preventDefault()
         const signupAdmin = {nomAdmin, prenomAdmin,email, password, dateofbirth,phone,country,typeCompany, nomCompany, nbrDepartments}
 
-        const response = await fetch('/auth/register', {
+        const response = await fetch("/auth/register", {
             method: 'POST',
             body: JSON.stringify(signupAdmin),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
+        console.log("aw mcha",signupAdmin)
 
         const json = await response.json()
 
@@ -46,7 +48,7 @@ export default function SignupForm() {
             setpassword('')
             // setpacke('')
             setError(null)
-            console.log("new workout added successfully", json)
+            console.log("user added successfully", json)
         }
     }
 
@@ -76,7 +78,7 @@ export default function SignupForm() {
                     </div>
                     <div className='w-full flex items-center justify-center px-6 py-4'>
                         <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={nomCompany}  onChange={(e) => setnomCompany(e.target.value)} placeholder='COMPANY NAME'/>
-                    </div>s
+                    </div>
                     <div className='w-full flex items-center justify-between px-6 py-4 '>
                         <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] ' type="text" value={typeCompany}  onChange={(e) => settypeCompany(e.target.value)}  placeholder='COMPANY TYPE'/>
                         <input className='w-[45%] py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="number" value={nbrDepartments}  onChange={(e) => setnbrDepartments(e.target.value)}  placeholder='NUMBER OF DEPARTEMENTS'/>
@@ -92,7 +94,7 @@ export default function SignupForm() {
                         <input type="checkbox" />
                     </div>
                     <div className='w-full flex items-center justify-center pt-6 diag-div relative'>
-                        <button className='bg-[#F75C03] font-bold text-white uppercase text-[30px] w-[50%] py-6 rounded-[26px] circle-div-btn circle-div relative' type ="submit" value="Submit">sign up</button>
+                        <button className='bg-[#F75C03] font-bold text-white uppercase text-[30px] w-[50%] py-6 rounded-[26px] circle-div-btn circle-div relative' type ="submit" value="Submit" >sign up</button>
                     </div>
                 </form>
             </div>
