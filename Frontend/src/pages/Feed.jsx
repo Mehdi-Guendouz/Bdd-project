@@ -5,6 +5,7 @@ import LeftpartFeed from '../components/Feed/LeftpartFeed.jsx'
 import NavbarFeed from '../components/Feed/NavbarFeed.jsx'
 import PostsPart from '../components/Feed/PostsPart.jsx'
 import RightPart from '../components/Feed/RightPart.jsx'
+import Chatbox from '../components/Feed/chat/Chatbox.jsx'
 
 export default function Feed() {
     return (
@@ -18,6 +19,7 @@ export default function Feed() {
                 <RightPart/>
             </div>
             <div className='chat-div font-fam-feed'>
+                <Chatbox/>
                 <Chat/>
             </div>
         </div>

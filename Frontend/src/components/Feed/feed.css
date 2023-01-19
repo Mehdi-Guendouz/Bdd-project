@@ -17,7 +17,13 @@
 .chat-div{
     bottom: 0;
     left: 0;
-    transform: translateX(475px);
+    /* transform: translateX(475px); */
+    /* overflow: hidden; */
     position: sticky;
     position: -webkit-sticky;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 100%;
 }

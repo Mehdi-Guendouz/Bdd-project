@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
+import React , {useState} from 'react'
 import './chat.css'
 import threePoint from '../../../img/icons/threePoint.png'
 import profilPic from '../../../img/profilePic.JPG'
 
-export default function Chat() {
+export default function Chatbox() {
     const [chateOpen, setChateOpen] = useState(false);
     const chatChangeState = ()=>{
         setChateOpen(prev => !prev)
     }
 
   return (
-    <div className='chat-container chat-header-all'>
+    <div className='chat-container chat-header-box'>
         <div className="chat-header" onClick={chatChangeState}>
             <h1>Quick chat</h1>
         </div>

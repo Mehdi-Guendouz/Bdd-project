@@ -1,9 +1,42 @@
-import React from 'react'
+import React , {useState} from 'react'
 import './loginAdmin.css'
 import zigzag  from '../../img/icons/zigzag.png';
 import {Link} from 'react-router-dom';
 
-export default function LoginAdmin() {
+export default function LoginAdmin(){
+
+    const [email, setemail] = useState('')
+    const [password, setpassword] = useState('')
+    const [error, setError] = useState('')
+
+
+    const handleSubmit = async (e) =>{
+        
+        e.preventDefault()
+        const loginAdmin = {email , password}
+
+        const response = await fetch("/auth/login", {
+            method: 'POST',
+            body: JSON.stringify(loginAdmin),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        console.log("aw mcha login",loginAdmin)
+
+        const json = await response.json()
+
+        if(!response.ok){
+            setError(json.error)
+        }
+        if(response.ok){
+            setemail('')
+            setpassword('')
+            setError(null)
+            console.log("user loged in successfully", json)
+        }
+    }
+
   return (
     <div className='container felx items-center justify-center bg-[#FBFBFF] h-screen'>
         <div className='p-10 flex flex-col items-center justify-center  '>
@@ -17,15 +50,16 @@ export default function LoginAdmin() {
                 <img src={zigzag} alt="" className='absolute right-0 bg-[#fbfbff] translate-x-[15.5px] translate-y-[-30px] z-10'/>
                 <img src={zigzag} alt="" className='absolute left-0 bg-[#fbfbff] translate-x-[-12.5px] translate-y-[-30px] z-10'/>
                 {/* this part is decoration part */}
-                <form className='w-full py-5 px-10 ' action="">
+                <form className='w-full py-5 px-10 ' onSubmit={handleSubmit}>
                     <h5 className='uppercase text-[#0A1682] text-[30px] font-bold'>enter your information</h5>
+                    {error && <p>{error}</p>}
                     <div className='w-full flex items-center justify-center flex-col px-6 py-10'>
                         {/* <label>Email</label> */}
-                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] mb-10' type="text"  placeholder='EMAIL'/>
-                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="password"  placeholder='PASSWORD'/>
+                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px] mb-10' type="text"  placeholder='EMAIL' onChange={(e) => setemail(e.target.value)}/>
+                        <input className='w-full py-6  text-[#838383] text-[22px] px-4 border-[#0A1682] border-[4px] border-solid outline-none bg-[#fff] rounded-[26px]' type="password"  placeholder='PASSWORD' onChange={(e) => setpassword(e.target.value)}/>
                     </div>
                     <div className='w-full flex items-center justify-center pt-6 diag-div relative'>
-                        <button className='bg-[#F75C03] font-bold text-white uppercase text-[30px] w-[50%] py-6 rounded-[26px] circle-div-btn circle-div relative'>Login</button>
+                        <button className='bg-[#F75C03] font-bold text-white uppercase text-[30px] w-[50%] py-6 rounded-[26px] circle-div-btn circle-div relative' type='submit'>Login</button>
                     </div>
                 </form>
             </div>
