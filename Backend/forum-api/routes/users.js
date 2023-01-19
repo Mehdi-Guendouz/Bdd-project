@@ -5,17 +5,18 @@ const bcrypt = require("bcrypt");
 var router = express.Router();
 
 
-
+const authMiddleware = require('../middleware/authmiddleware');
+const idMiddleware = require('../middleware/idmiddleware');
 /* GET users listing. */
 
-router.get('/register', async function (req, res, next) {
+router.get('/:id/register', async function (req, res, next) {
   const User = await  Users.find()
   res.send(User);
 });
 
 
 
-router.post("/register", async (req, res) => {
+router.post("/:id/register", async (req, res) => {
   const {   password,
     email,
     nomUser,
@@ -48,7 +49,7 @@ router.post("/register", async (req, res) => {
 }});
 
 
-router.post("/login", async (req, res) => {
+router.post("/:id/login", async (req, res) => {
   const { email, password } = req.body;
  
   if (!email || !password) {
@@ -106,7 +107,7 @@ router.post("/login", async (req, res) => {
 	}
 
 })*/
-router.put('/edit', async function (req, res, next) {
+router.put('/:id/edit', async function (req, res, next) {
 
   try {
     const {
@@ -127,10 +128,10 @@ router.put('/edit', async function (req, res, next) {
   } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
-}),
+},authMiddleware,idMiddleware),
 
 
-router.delete('/delete', async function (req, res, next) {
+router.delete('/:id/delete', async function (req, res, next) {
   const {_id} = req.body
   const User = await Users.findByIdAndUpdate(_id,
     {
@@ -138,6 +139,6 @@ router.delete('/delete', async function (req, res, next) {
     }, { new: true })
   res.send(User);
 
-})
+},authMiddleware,idMiddleware)
 
 module.exports = router;

@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 var express = require('express');
 const bodyParser = require('body-parser');
+const expressSession = require('express-session');
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -12,6 +13,7 @@ var authRouter = require('./routes/auth-admin')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var messagesRouter = require('./routes/discussionController');
 
 var app = express();
 app.use(express.json());
@@ -19,6 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: 'true' }));
 app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(expressSession({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}))
 
 app.use(cookieParser());
 // view engine setup
@@ -27,6 +34,7 @@ app.set('view engine', 'jade');
 app.enable("trust proxy");
 app.use(logger('dev'));
 app.use('/auth',authRouter)
+app.use('/messages', messagesRouter);
 
 
 app.use(express.static(path.join(__dirname, 'public')));

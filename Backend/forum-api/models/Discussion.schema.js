@@ -1,17 +1,26 @@
 const mongoose = require ('mongoose');
 const deepPopulate = require ('mongoose-deep-populate')
+const findVisible = require ('../findVisible');
 
-const DiscussionSchema = new mongoose.Schema({
-    idDiscussion: {type :Number},
-    listemembres:{type: mongoose.Schema.Types.ObjectId, ref:'Users'},
-    admin :{type: mongoose.Schema.Types.ObjectId, ref:'Admins'},
-    titre : {type : String},
-    image : {type : String},
-    message :{type :String},
-    isVisible: {type: Boolean, default : true},
-    createdAt:{type:Date}
-
-})
+const DiscussionSchema = new mongoose.Schema(
+    {
+        message : {
+            text : {
+                type :String, 
+                required : true,
+            },
+        },
+            users : Array,
+            sender : {
+                type : mongoose.Schema.Types.ObjectId,
+                ref : 'User',
+                required : true,
+            },
+    },
+    {
+            timestamps : true,
+    }
+);
 
 const population = [{
     path :'admin',
@@ -23,14 +32,6 @@ const population = [{
     match :{isVisible:true}
 }]
 
-TopicsSchema.pre('find',findVisible(population))
-TopicsSchema.pre('findOne',findVisible(population))
-TopicsSchema.pre('findOneAndUpdate',findVisible(population))
-TopicsSchema.pre('count',findVisible(population))
-TopicsSchema.pre('countDocuments',findVisible(population))
-
-CompanySchema.plugin(deepPopulate)
- 
 
 const Discussion = mongoose.model('Discussions', DiscussionSchema, 'Discussion')
 module.exports = Discussion
